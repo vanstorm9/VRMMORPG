@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	public float speed = 10f;
+	public float speed = 2f;
 	private GameObject swordObj;
-
+	public int playerState; 
 	public Camera cam;
 
 
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 			//GetComponent(Camera).enabled = true;
 			InputColorChange ();
 		} else {
+
 			//GetComponent(Camera).enabled = false;
 		}
 		/*
@@ -64,7 +65,16 @@ public class Player : MonoBehaviour {
 	private float syncTime = 0f;
 	private Vector3 syncStartPosition = Vector3.zero;
 	private Vector3 syncEndPosition = Vector3.zero;
-	
+	/*
+	void OppositeAnimationState(int aniState)
+	{
+		if (aniState == 2) 
+		{
+			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
+		}
+
+	}
+	*/
 	void OnSerializeNetworkView(BitStream stream, NetworkMessageInfo info)
 	{
 		Vector3 syncPosition = Vector3.zero;
@@ -76,6 +86,8 @@ public class Player : MonoBehaviour {
 			
 			syncVelocity = GetComponent<Rigidbody>().velocity;
 			stream.Serialize(ref syncVelocity);
+
+			//OppositeAnimationState(playerState);
 		}
 		else
 		{
@@ -112,6 +124,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.P))
 			//swordObj = transform.Find("Sword").gameObject;
+			playerState = 2;
 			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
 
 
