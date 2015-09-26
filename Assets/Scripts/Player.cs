@@ -30,7 +30,13 @@ public class Player : MonoBehaviour {
 		}
 		*/
 	}
-	
+
+	void OnPlayerDisconnected(NetworkPlayer player)
+	{
+		Network.RemoveRPCs (player);
+		Network.DestroyPlayerObjects (player);
+	}
+
 	private void InputColorChange()
 	{
 		if (Input.GetKeyDown(KeyCode.R))
