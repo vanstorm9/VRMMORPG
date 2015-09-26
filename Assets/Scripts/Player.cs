@@ -7,9 +7,10 @@ public class Player : MonoBehaviour {
 
 	public Camera cam;
 
+
+
 	void Start()
 	{
-
 		//sword = GameObject.Find("Sword");
 		//swordComponents = GetComponentsInChildren (sword);
 	}
@@ -94,21 +95,25 @@ public class Player : MonoBehaviour {
 	void InputMovement()
 	{
 		if (Input.GetKey(KeyCode.W))
-			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Vector3.forward * speed * Time.deltaTime);
-		
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.forward * speed * Time.deltaTime);
+			
 		if (Input.GetKey(KeyCode.S))
-			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - Vector3.forward * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.forward * speed * Time.deltaTime);
 		
 		if (Input.GetKey(KeyCode.D))
-			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Vector3.right * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.right * speed * Time.deltaTime);
 		
 		if (Input.GetKey(KeyCode.A))
-			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - Vector3.right * speed * Time.deltaTime);
-
+			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - transform.right * speed * Time.deltaTime);
+		if (Input.GetKey(KeyCode.E))
+			transform.RotateAround(transform.position, transform.up, Time.deltaTime * 90f);
+		if (Input.GetKey(KeyCode.Q))
+			transform.RotateAround(transform.position, transform.up, Time.deltaTime * -90f);
 
 		if (Input.GetKey (KeyCode.P))
 			//swordObj = transform.Find("Sword").gameObject;
 			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
+
 
 	}
 }
