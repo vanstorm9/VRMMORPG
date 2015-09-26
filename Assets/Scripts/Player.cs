@@ -3,7 +3,15 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	public float speed = 10f;
-	
+	private GameObject swordObj;
+
+	void Start()
+	{
+
+		//sword = GameObject.Find("Sword");
+		//swordComponents = GetComponentsInChildren (sword);
+	}
+
 	void Update()
 	{
 		if (GetComponent<NetworkView>().isMine)
@@ -86,5 +94,11 @@ public class Player : MonoBehaviour {
 		
 		if (Input.GetKey(KeyCode.A))
 			GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position - Vector3.right * speed * Time.deltaTime);
+
+
+		if (Input.GetKey (KeyCode.P))
+			//swordObj = transform.Find("Sword").gameObject;
+			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
+
 	}
 }
