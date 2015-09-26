@@ -5,6 +5,8 @@ public class Player : MonoBehaviour {
 	public float speed = 10f;
 	private GameObject swordObj;
 
+	public Camera cam;
+
 	void Start()
 	{
 
@@ -14,10 +16,12 @@ public class Player : MonoBehaviour {
 
 	void Update()
 	{
-		if (GetComponent<NetworkView>().isMine)
-		{
-			InputMovement();
-			InputColorChange();
+		if (GetComponent<NetworkView> ().isMine) {
+			InputMovement ();
+			//GetComponent(Camera).enabled = true;
+			InputColorChange ();
+		} else {
+			//GetComponent(Camera).enabled = false;
 		}
 		/*
 		else
