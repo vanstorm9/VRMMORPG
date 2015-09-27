@@ -8,6 +8,7 @@ public class SampleSceneGUI : MonoBehaviour
     // Myo game object to connect with.
     // This object must have a ThalmicMyo script attached.
     public GameObject myo = null;
+    public int ArmTurnState;
 
     // Draw some basic instructions.
     void OnGUI ()
@@ -18,7 +19,7 @@ public class SampleSceneGUI : MonoBehaviour
 
         // Access the ThalmicMyo script attached to the Myo object.
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo> ();
-
+        
         if (!hub.hubInitialized) {
             GUI.Label(new Rect (12, 8, Screen.width, Screen.height),
                 "Cannot contact Myo Connect. Is Myo Connect running?\n" +
@@ -42,7 +43,16 @@ public class SampleSceneGUI : MonoBehaviour
     void Update ()
     {
         ThalmicHub hub = ThalmicHub.instance;
+        ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
+        //Debug.Log(thalmicMyo.gyroscope);
 
+        if (thalmicMyo.gyroscope.x > 45)
+            Debug.Log("Right swing");
+        else if (thalmicMyo.gyroscope.x < 0)
+            Debug.Log("Left swing");
+        else
+            Debug.Log("Neutral");
+                
         if (Input.GetKeyDown ("q")) {
             hub.ResetHub();
         }
