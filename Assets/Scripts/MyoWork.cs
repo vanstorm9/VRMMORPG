@@ -22,8 +22,8 @@ public class MyoWork : MonoBehaviour {
 
         if (thalmicMyo.accelerometer.x > 0.6 && thalmicMyo.accelerometer.y < 1)
         {
-            Debug.Log("Right swing");
             transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordRightSlash");
+            Debug.Log("Right swing");
         }
         else if (thalmicMyo.accelerometer.x < -0.6 && thalmicMyo.accelerometer.y < 1)
         {
