@@ -39,7 +39,7 @@ public class SampleSceneGUI : MonoBehaviour
             );
         }
     }
-
+    
     void Update ()
     {
         ThalmicHub hub = ThalmicHub.instance;
@@ -47,14 +47,19 @@ public class SampleSceneGUI : MonoBehaviour
         //Debug.Log(thalmicMyo.gyroscope);
 
         if (thalmicMyo.accelerometer.x > 0.6 && thalmicMyo.accelerometer.y < 1)
+        {
             Debug.Log("Right swing");
+            //transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordRightSlash");
+        }
         else if (thalmicMyo.accelerometer.x < -0.6 && thalmicMyo.accelerometer.y < 1)
+        {
             Debug.Log("Left swing");
-        else if (thalmicMyo.accelerometer.y > 1)
+            //transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordLeftSlash");
+        }else if (thalmicMyo.accelerometer.y > 1)
             Debug.Log("Overhead swing");
         else
-            Debug.Log("Nothing");
-                
+            //Debug.Log("Nothing");
+               
         if (Input.GetKeyDown ("q")) {
             hub.ResetHub();
         }
