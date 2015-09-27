@@ -127,6 +127,10 @@ public class Player : MonoBehaviour {
 			//playerState = 2;
 			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
 
-
+        if (Input.GetKey(KeyCode.N))
+        {
+            transform.Find("Sword").gameObject.transform.Rotate(0, 0, 90 * Time.deltaTime);
+        }
 	}
+
 }
