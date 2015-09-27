@@ -12,6 +12,23 @@ public class SampleSceneGUI : MonoBehaviour
     public int ArmTurnState;
     public GameObject ani;
     // Draw some basic instructions.
+
+
+    private bool finished = false;
+    private int loaderCounter = 0;
+
+    void Start()
+    {
+        StartCoroutine(StartLoader());
+    }
+
+    IEnumerator StartLoader()
+    {
+        //Instantiate(cube, positions[loaderCounter], Quaternion.identity);
+        yield return new WaitForSeconds(10);
+        
+        
+    }
     void OnGUI()
     {
         GUI.skin.label.fontSize = 20;
@@ -66,15 +83,18 @@ public class SampleSceneGUI : MonoBehaviour
             Debug.Log("Right swing");
 
             ani.GetComponent<Animation>().Play("SwordRightSlash");
+            StartLoader();
             //transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordRightSlash");
         }
         else if (thalmicMyo.accelerometer.x < -1.2 && thalmicMyo.accelerometer.y < 1)
         {
             Debug.Log("Left swing");
             ani.GetComponent<Animation>().Play("SwordLeftSlash");
+            StartLoader();
             //transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordLeftSlash");
-        } else if (thalmicMyo.accelerometer.y > 1) {
+        } else if (thalmicMyo.accelerometer.y > 2) {
             ani.GetComponent<Animation>().Play("AttackAnimations");
+            StartLoader();
             Debug.Log("Overhead swing");
         }else{
             Debug.Log("Nothing");
