@@ -124,7 +124,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.P))
 			//swordObj = transform.Find("Sword").gameObject;
-			playerState = 2;
+			//playerState = 2;
 			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
 
 
