@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	public float speed = 2f;
+	public float speed = 6f;
 	private GameObject swordObj;
 	public int playerState; 
 	public Camera cam;
@@ -122,15 +122,27 @@ public class Player : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Q))
 			transform.RotateAround(transform.position, transform.up, Time.deltaTime * -90f);
 
-		if (Input.GetKey (KeyCode.P))
+		if (Input.GetKey (KeyCode.O))
 			//swordObj = transform.Find("Sword").gameObject;
 			//playerState = 2;
 			transform.Find("Sword").gameObject.GetComponent<Animation>().Play("AttackAnimations");
 
+        if(Input.GetKey(KeyCode.L))
+        {
+            transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordRightSlash");
+        }
+
+        if (Input.GetKey(KeyCode.K))
+        {
+            transform.Find("Sword").gameObject.GetComponent<Animation>().Play("SwordLeftSlash");
+        }
+
+        /*
         if (Input.GetKey(KeyCode.N))
         {
             transform.Find("Sword").gameObject.transform.Rotate(0, 0, 90 * Time.deltaTime);
         }
-	}
+        */
+    }
 
 }

@@ -46,12 +46,14 @@ public class SampleSceneGUI : MonoBehaviour
         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo>();
         //Debug.Log(thalmicMyo.gyroscope);
 
-        if (thalmicMyo.gyroscope.x > 45)
+        if (thalmicMyo.accelerometer.x > 0.6 && thalmicMyo.accelerometer.y < 1)
             Debug.Log("Right swing");
-        else if (thalmicMyo.gyroscope.x < 0)
+        else if (thalmicMyo.accelerometer.x < -0.6 && thalmicMyo.accelerometer.y < 1)
             Debug.Log("Left swing");
+        else if (thalmicMyo.accelerometer.y > 1)
+            Debug.Log("Overhead swing");
         else
-            Debug.Log("Neutral");
+            Debug.Log("Nothing");
                 
         if (Input.GetKeyDown ("q")) {
             hub.ResetHub();
