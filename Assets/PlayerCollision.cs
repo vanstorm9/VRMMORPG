@@ -12,7 +12,7 @@ public class PlayerCollision : MonoBehaviour {
 		serialcall = SerialObject.GetComponent <MasterSerial> ();
 	}
 	
-	void OnCollisionEnter (Collision target) {
+	void OnCollisionStay (Collision target) {
 		Debug.Log ("Successful collision with cube");
 		
 		serialcall.ActivateFeedback ();
