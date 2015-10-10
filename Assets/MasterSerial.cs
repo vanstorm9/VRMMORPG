@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using System.IO.Ports;
+using System.IO.Ports;
 
 public class MasterSerial : MonoBehaviour
 {
-    /*
+
 
     public SerialPort serial = new SerialPort("COM7", 9600);
     //	Debug.Log("Initalized serial port");
@@ -48,6 +48,6 @@ public class MasterSerial : MonoBehaviour
         serial.Write("A");
 
     }
-    */
+
 
 }
