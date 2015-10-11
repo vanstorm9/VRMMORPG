@@ -45,7 +45,7 @@ public class MasterSerial : MonoBehaviour
 
         OpenCheck();
         Debug.Log("Serial sent to Arduino");
-        serial.Write("A");
+        serial.Write("1");
 
     }
 
