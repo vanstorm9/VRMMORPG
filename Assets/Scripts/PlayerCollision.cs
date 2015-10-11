@@ -20,6 +20,7 @@ public class PlayerCollision : MonoBehaviour {
 
 		Debug.Log ("CollisionStay");
 		if (target.transform.gameObject.name == "Player(Clone)") {
+		//if (target.transform.gameObject.name == "Sword") {
 			Debug.Log ("Successful collision with cube");
 			serialcall.ActivateFeedback ();
 		} else {
