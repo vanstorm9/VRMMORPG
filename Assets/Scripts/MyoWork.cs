@@ -37,7 +37,7 @@ public class MyoWork : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
         }
         if (Input.GetKeyDown("q"))
         {

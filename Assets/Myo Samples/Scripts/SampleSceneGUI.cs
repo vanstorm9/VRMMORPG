@@ -66,6 +66,8 @@ public class SampleSceneGUI : MonoBehaviour
         GameObject player_obj = GameObject.Find("Player(Clone)");
         
         ani = player_obj.transform.Find("Sword").gameObject;
+
+        /*
         if (player_obj != null)
         {
             Debug.Log("Good to go");
@@ -73,7 +75,7 @@ public class SampleSceneGUI : MonoBehaviour
         }else {
             Debug.Log("Null");
         }
-        
+        */
 
 
        
@@ -97,7 +99,7 @@ public class SampleSceneGUI : MonoBehaviour
             StartLoader();
             Debug.Log("Overhead swing");
         }else{
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
         }
 
         if (Input.GetKeyDown ("q")) {

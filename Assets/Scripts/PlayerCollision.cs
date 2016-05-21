@@ -3,7 +3,7 @@ using System.Collections;
 //using System.IO.Ports;
 
 public class PlayerCollision : MonoBehaviour {
-
+    /*
 	public MasterSerial serialcall;
 	public GameObject SerialObject;
 	//public SerialPort serial = new SerialPort("COM7", 9600);
@@ -15,11 +15,19 @@ public class PlayerCollision : MonoBehaviour {
 
 
 	}
-	
-	void OnCollisionStay (Collision target) {
 
-		Debug.Log ("CollisionStay");
-		if (target.transform.gameObject.name == "Player(Clone)") {
+    void checkCollision(GameObject subject)
+    {
+        if (subject.name != "Plane")
+        {
+            Debug.Log("Collision: " + subject.name);
+        }
+    }
+
+    void OnCollisionStay (Collision target) {
+
+        checkCollision(target.transform.gameObject);
+        if (target.transform.gameObject.name == "Player(Clone)") {
 		//if (target.transform.gameObject.name == "Sword") {
 			Debug.Log ("Successful collision with cube");
 			serialcall.ActivateFeedback ();
@@ -29,4 +37,7 @@ public class PlayerCollision : MonoBehaviour {
 		}
 
 	}
+
+    */
+    
 }

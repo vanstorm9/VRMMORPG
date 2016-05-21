@@ -11,8 +11,7 @@ public class Player : MonoBehaviour {
 
 	void Start()
 	{
-		//sword = GameObject.Find("Sword");
-		//swordComponents = GetComponentsInChildren (sword);
+
 	}
 
 	void Update()
