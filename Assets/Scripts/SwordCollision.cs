@@ -33,9 +33,10 @@ public class SwordCollision : MonoBehaviour
 
         //checkCollision(target.transform.gameObject);
 
-        if (target.transform.gameObject.name == "Cube")
+        string cmp_hit = target.transform.gameObject.name;
+        if (cmp_hit == "Cube" || cmp_hit == "EnemySword")
         {
-            Debug.Log("Successful sword collision with cube");
+            Debug.Log("Successful sword collision with " + cmp_hit);
             serialcall.ActivateFeedback();
         }
         else
