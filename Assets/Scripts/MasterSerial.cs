@@ -5,8 +5,8 @@ using System.IO.Ports;
 public class MasterSerial : MonoBehaviour
 {
 
-
-    public SerialPort serial = new SerialPort("COM6", 9600);
+    public static string set_serial_port = "COM5";
+    public SerialPort serial = new SerialPort(set_serial_port, 9600);
     //	Debug.Log("Initalized serial port");
     private bool lightState = false;
 
