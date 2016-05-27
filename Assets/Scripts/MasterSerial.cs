@@ -6,7 +6,7 @@ public class MasterSerial : MonoBehaviour
 {
 
 
-    public SerialPort serial = new SerialPort("COM7", 9600);
+    public SerialPort serial = new SerialPort("COM6", 9600);
     //	Debug.Log("Initalized serial port");
     private bool lightState = false;
 

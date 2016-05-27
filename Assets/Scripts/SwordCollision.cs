@@ -6,7 +6,7 @@ public class SwordCollision : MonoBehaviour
 
     public MasterSerial serialcall;
     public GameObject SerialObject;
-    //public SerialPort serial = new SerialPort("COM7", 9600);
+    //public SerialPort serial = new SerialPort("COM5", 9600);
 
     void Start()
     {
